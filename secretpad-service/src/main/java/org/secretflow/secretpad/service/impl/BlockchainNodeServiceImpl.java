@@ -34,7 +34,8 @@ public class BlockchainNodeServiceImpl implements BlockchainNodeService {
     public JSONArray blockchainListNodes() {
 
         String dlUrl = System.getenv("DIGITAL_LINK_URL");
-        String nodeUrl = dlUrl + "/api/v1/namespaces/default/messages?limit=100&tag=p2pNode";
+        String tag = System.getenv("DIGITAL_LINK_TAG");
+        String nodeUrl = dlUrl + "/api/v1/namespaces/default/messages?limit=100&tag=" + tag;
         JSONArray resultArray = new JSONArray();
         String response = HttpUtil.get(nodeUrl);
         LOGGER.info("获取数链通上所有隐私计算节点信息:{}", response);

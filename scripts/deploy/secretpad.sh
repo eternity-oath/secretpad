@@ -301,6 +301,7 @@ function start() {
 			-e KUSCIA_GATEWAY_PORT="${KUSCIA_GATEWAY_PORT}" \
       -e NET_ADDRESS="${NET_ADDRESS}" \
       -e DIGITAL_LINK_URL="${DIGITAL_LINK_URL}" \
+      -e DIGITAL_LINK_TAG="${DIGITAL_LINK_TAG}" \
 			-e KEY_PASSWORD="${KEY_PASSWORD}" \
 			-e KUSCIA_API_ADDRESS="${KUSCIA_API_ADDRESS}" \
 			-e KUSCIA_API_LITE_ALICE_ADDRESS="${KUSCIA_API_LITE_ALICE_ADDRESS}" \
@@ -328,6 +329,7 @@ function start() {
 # 获取服务器的第一个非回环IPv4地址
 export NET_ADDRESS=$(ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1 | head -n1)
 export DIGITAL_LINK_URL="http://10.1.120.43:5000"
+export DIGITAL_LINK_TAG="p2pNode"
 
 usage() {
 	echo "$(basename "$0") DEPLOY_MODE [OPTIONS]

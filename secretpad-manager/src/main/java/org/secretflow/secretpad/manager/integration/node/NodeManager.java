@@ -755,6 +755,7 @@ public class NodeManager extends AbstractNodeManager {
     private void initPrivate(String nodeId, String net_address, String certText) {
         log.info("数据上链开始");
         String digitalLinkUrl = System.getenv("DIGITAL_LINK_URL");
+        String tag = System.getenv("DIGITAL_LINK_TAG");
         // node info
         JSONArray data = new JSONArray();
         JSONObject node_info = new JSONObject();
@@ -772,7 +773,7 @@ public class NodeManager extends AbstractNodeManager {
         JSONArray topics = new JSONArray();
         topics.add(nodeId);
         topics.add("nodeInfo");
-        header.put("tag", "p2pNode");
+        header.put("tag", tag);
         header.put("topics", topics);
 
         JSONObject payload = new JSONObject();
