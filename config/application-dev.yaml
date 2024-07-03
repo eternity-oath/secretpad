@@ -1,0 +1,30 @@
+spring:
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  datasource:
+    url: jdbc:sqlite:./db/secretpad.sqlite
+
+springdoc:
+  api-docs:
+    enabled: true
+
+secretpad:
+  platform-type: CENTER    # CENTER  EDGE  AUTONOMY
+  deploy-mode: ${DEPLOY_MODE:MPC} # MPC TEE ALL-IN-ONE
+  node-id: ${NODE_ID:kuscia-system} # install.sh -n
+  gateway: ${KUSCIA_GW_ADDRESS:127.0.0.1:18301} # install.sh -q envoy port (used in autonomy or master or edge mode)
+  logs:
+    path: ../log
+
+kusciaapi:
+  protocol: ${KUSCIA_PROTOCOL:notls} # notls tls mtls  install.sh -P
+  address: 127.0.0.1:18083 # install.sh -g kuscia-api-grpc (kuscia-master) (used in autonomy or master or edge mode)
+
+kusciaapi-lite-alice:
+  address: 127.0.0.1:28083 # install.sh -g kuscia-api-grpc (kuscia-lite-alice) (Only used in master mode default node alice)
+
+kusciaapi-lite-bob:
+  address: 127.0.0.1:38083 # install.sh -g kuscia-api-grpc (kuscia-lite-bob) (Only used in master mode default node bob)

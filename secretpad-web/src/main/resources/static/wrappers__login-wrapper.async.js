@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksecretpad=self.webpackChunksecretpad||[]).push([[5232],{14786:function(r,t,e){e.r(t);var n=e(62664),u=e(35667),o=function(){return localStorage.removeItem("neverLogined"),localStorage.removeItem("User-Token"),(0,u.jsx)(n.j3,{})};t.default=o}}]);
